@@ -6,6 +6,7 @@ Harmonial is a Python 3.5+ module that allows for the simple creation of Python 
 Documentation
 ---------
 ------------
+
 ###Classes###
 
 > harmonial.**Function**(*function_type*, *params=None*)
@@ -27,6 +28,7 @@ Parameters:
  - `functions` (list[`harmonial.Function`]) - A list of `Function`s that will be activated, in order, upon the command's activation.
 
 --------------
+
 ###Functions###
 
 >harmonial.**special**(*special_type*, *params=None*)
