@@ -7,7 +7,7 @@ Documentation
 ---------
 ------------
 
-### Classes###
+### Classes
 
 > harmonial.**Function**(*function_type*, *params=None*)
 
@@ -29,7 +29,7 @@ Parameters:
 
 --------------
 
-### Functions###
+### Functions
 
 >harmonial.**special**(*special_type*, *params=None*)
 
@@ -51,7 +51,7 @@ Parameters:
 
 ----------
 
-### Function Types###
+### Function Types
 
 `function_type`:
 
