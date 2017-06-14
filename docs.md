@@ -68,6 +68,7 @@ Parameters:
  - `'writeFile'` (*`params` as tuple*) - Write a string `params[1]` to file path `params[0]`.
  - `'uploadFile'` (*`params` as str or file object*) - Upload a file `params` to the channel as a response.
  - `'define'` (*`params` as tuple(str, \*)*) - Define a variable name `params[0]` with data `params[1]`.
+ - `'raw'` (*`params` as str*) - Add a line of raw Python code.
 
 `special_type`:
 

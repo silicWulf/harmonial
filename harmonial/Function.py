@@ -43,3 +43,7 @@ class Function:
                     self._bytestream = pickle.dumps(params[1])
                     self._function_code = """    _USABLE_VARS['""" + str(params[0]) + """'] = pickle.load(open('''$filename-assets/$filename-""" + self._bs_name + """.asset''', 'rb'))
 """
+        elif self.function_type == 'raw':
+            self._function_code = ''
+            for line in params[2:].split('\n'):
+                self._function_code += '    ' + line
