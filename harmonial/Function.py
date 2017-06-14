@@ -18,5 +18,3 @@ class Function:
             else:
                 self._function_code = """    open('""" + p[0] + """').write('""" + p[1] + """')
 """
-
-        
