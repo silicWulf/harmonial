@@ -1,6 +1,7 @@
 import os, random, pickle, shutil
 from .Function import Function
 from .Command import Command
+from .Event import Event
 #from .LoginInfo import LoginInfo
 
 def build(filename, prefix, commands):
@@ -24,7 +25,7 @@ _USABLE_VARS = {}
                     os.makedirs(filename + '-assets/', exist_ok=True)
                 open(filename + '-assets/' + filename + '-' + str(func._bs_name) + '.asset', 'wb').write(func._bytestream)
         f.write((command._command_code).replace('$filename', filename))
-    f.write("bot.run('TOKEN HERE')")
+    f.write("\nbot.run('TOKEN HERE')")
     f.close()
 
 def special(special_type, params=None):

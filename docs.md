@@ -4,7 +4,7 @@ Harmonial is a Python 3.5+ module that allows for the simple creation of Python 
 
 ----------
 Documentation
----------
+
 ------------
 
 ### Classes
@@ -17,6 +17,15 @@ Parameters:
 
  - `function_type` (*str*) - The type of function that this class should be. A list of `function_type`s can be found at the bottom of the documentation.
  - `params` - The parameters that the function should have. *Different `function_type`s will require different variable types.*
+
+>harmonial.**Event**(*event*, *functions*)
+
+An `Event` class, which defines a bot event.
+
+Parameters:
+
+ - `event` (*str*) - The type of event that will activate the functions `functions`.
+ - `functions` (list[`harmonial.Function`]) - A list of `Function`s that will be activated, in order, upon the event's activation.
 
 >harmonial.**Command**(*commandname*, *functions*)
 
@@ -55,14 +64,21 @@ Parameters:
 
 `function_type`:
 
- - `'say'`  - (*`params` as str*) Say a string `params` in the channel as a response.
- - `'writeFile'` - (*`params` as tuple*) Write a string `params[1]` to file path `params[0]`.
- - `'uploadFile'` - (*`params` as str or file object*) Upload a file `params` to the channel as a response.
- - `'define'` - (*`params` as tuple(str, \*)*) - Define a variable name `params[0]` with data `params[1]`.
+ - `'say'` (*`params` as str*) - Say a string `params` in the channel as a response.
+ - `'writeFile'` (*`params` as tuple*) - Write a string `params[1]` to file path `params[0]`.
+ - `'uploadFile'` (*`params` as str or file object*) - Upload a file `params` to the channel as a response.
+ - `'define'` (*`params` as tuple(str, \*)*) - Define a variable name `params[0]` with data `params[1]`.
 
 `special_type`:
 
- - `'randomNumber'` - (*`params` as tuple*(*int, int* *)*) - Returns string combiner that will return a random number between the range as defined in the tuple.
- - `'contentsOf'` - (*`params` as str*) Returns the contents of a file at path `params`.
- - `'variableString'` - (*`params` as str*) Returns a string combiner that will return the result of a variable `params` in string form.
- - `'rawVariable'` - (*`params` as str*) Returns the raw contents of a variable `params`.
+ - `'randomNumber'` (*`params` as tuple*(*int, int* *)*) - Returns string combiner that will return a random number between the range as defined in the tuple.
+ - `'contentsOf'` (*`params` as str*) - Returns the contents of a file at path `params`.
+ - `'variableString'` (*`params` as str*) - Returns a string combiner that will return the result of a variable `params` in string form.
+ - `'rawVariable'` (*`params` as str*) - Returns the raw contents of a variable `params`.
+
+----------
+
+### Miscellaneous Info
+
+ - When '$argument' is used in a function inside of a `Command`, it will return the contents after the command.
+ - When '$+' is used in `harmonial.special()` with a `special_type` of 'define', numbers that come after the flag will be appended onto the variable (ex. `'$+142'` will add 142 to the variable).

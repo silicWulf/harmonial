@@ -28,7 +28,18 @@ class Function:
             self._function_code = """    await bot.send_file(ctx.message.channel, '''""" + self.params + """''')
 """
         elif self.function_type == 'define':
-            self._bs_name = params[0] + '-' + str(random.randint(100,999))
-            self._bytestream = pickle.dumps(params[1])
-            self._function_code = """    _USABLE_VARS['""" + str(params[0]) + """'] = pickle.load(open('''$filename-assets/$filename-""" + self._bs_name + """.asset''', 'rb'))
+            if type(params[1]) == str:
+                if params[1].startswith('$+') and len(params[1]) > 2:
+                    try:
+                        i = int(params[1][2:])
+                        self._bs_name = params[0] + '-' + str(random.randint(100,999))
+                        self._bytestream = pickle.dumps(params[1])
+                        self._function_code = """    _USABLE_VARS['""" + str(params[0]) + """'] += """ + str(i) + """
+"""
+                    except IndexError:
+                        print('why is an IndexError occuring?')
+                else:
+                    self._bs_name = params[0] + '-' + str(random.randint(100,999))
+                    self._bytestream = pickle.dumps(params[1])
+                    self._function_code = """    _USABLE_VARS['""" + str(params[0]) + """'] = pickle.load(open('''$filename-assets/$filename-""" + self._bs_name + """.asset''', 'rb'))
 """
