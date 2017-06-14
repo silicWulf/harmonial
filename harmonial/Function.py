@@ -45,5 +45,5 @@ class Function:
 """
         elif self.function_type == 'raw':
             self._function_code = ''
-            for line in params[2:].split('\n'):
+            for line in params.split('\n'):
                 self._function_code += '    ' + line
