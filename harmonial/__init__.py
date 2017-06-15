@@ -24,7 +24,10 @@ _USABLE_VARS = {}
                     shutil.rmtree(filename + '-assets/', ignore_errors=True)
                     os.makedirs(filename + '-assets/', exist_ok=True)
                 open(filename + '-assets/' + filename + '-' + str(func._bs_name) + '.asset', 'wb').write(func._bytestream)
-        f.write((command._command_code).replace('$filename', filename).replace('~-!!', 'ctx.message.content[' + str((len(command.commandname) + len(prefix) + 1)) + ']'))
+        if '~-!!' in command._command_code:
+            f.write((command._command_code).replace('$filename', filename).replace('~-!!', 'ctx.message.content[' + str((len(command.commandname) + len(prefix) + 1)) + ']'))
+        else:
+            f.write((command._command_code).replace('$filename', filename))
     f.write("\nbot.run('TOKEN HERE')")
     f.close()
 
