@@ -18,4 +18,3 @@ async def """ + self.event + """(""" + self._args + """):
             _function_code = function._function_code # .replace('$argument', 'ctx.message.content[' + str(len(self.commandname)) + ' + 1]')
 
             self._command_code += _function_code
-            
