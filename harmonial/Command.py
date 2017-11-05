@@ -8,8 +8,8 @@ async def """ + self.commandname + """(ctx):
         for function in self.functions:
             params = function.params
             function_type = function.function_type
-            #_function_code = function._function_code.replace('$argument', "''' + ctx.message.content[" + str(len(self.commandname)) + " + 1] + '''")
-            _function_code = function._function_code.replace('$argument', "''' + ~-!! + '''")
+            _function_code = function._function_code.replace('$argument', 'ctx.message.content[' + str(len(self.commandname)) + ' + 1]')
+            _function_code = function._function_code.replace('$messageContent', "''' + ctx.message.content + '''")
 
             self._command_code += _function_code
 
